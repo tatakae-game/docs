@@ -1,0 +1,9 @@
+[submodule "compiler/libs/antlr4"]
+	path = compiler/libs/antlr4
+	url = https://github.com/antlr/antlr4.git
+[submodule "compiler/libs/llvm"]
+	path = compiler/libs/llvm
+	url = https://git.llvm.org/git/llvm.git
+[submodule "compiler/libs/lld"]
+	path = compiler/libs/lld
+	url = https://git.llvm.org/git/lld.git
