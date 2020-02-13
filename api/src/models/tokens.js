@@ -6,3 +6,6 @@ const model = db.model('Token', {
 })
 
 exports.model = model
+
+const length = 128
+exports.length = length
