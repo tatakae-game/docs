@@ -10,6 +10,9 @@ const body_parser = require('body-parser')
 app.use(body_parser.urlencoded({ extended: false }))
 app.use(body_parser.json())
 
+const token_middleware = require('./middlewares/token')
+app.use(token_middleware)
+
 const routes = require('./routes')
 app.use(routes)
 
