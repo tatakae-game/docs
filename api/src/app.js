@@ -1,20 +1,20 @@
-const express = require('express')
+import express from 'express'
 const app = express()
 
 app.set('trust proxy', true)
 
-const helmet = require('helmet')
+import helmet from 'helmet'
 app.use(helmet())
 
-const body_parser = require('body-parser')
+import body_parser from 'body-parser'
 app.use(body_parser.urlencoded({ extended: false }))
 app.use(body_parser.json())
 
-const token_middleware = require('./middlewares/token')
+import token_middleware from './middlewares/token'
 app.use(token_middleware)
 
-const routes = require('./routes')
-app.use(routes)
+import * as routes from './routes'
+app.use(Object.values(routes))
 
 app.use('*', (req, res) => {
   res.status(404).send({

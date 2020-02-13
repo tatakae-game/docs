@@ -1,12 +1,13 @@
-const router = require('express').Router()
-module.exports = router
+import { Router } from 'express'
+const router = Router()
+export default router
 
-const auth = require('../auth')
+import * as auth from '../auth'
 
-router.post('/auth/check', (req, res) => {
+router.get('/auth/check', async (req, res) => {
   const token = req.token
 
-  if (auth.check(token)) {
+  if (await auth.check(token)) {
     res.send({
       pass: true,
     })

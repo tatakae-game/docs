@@ -1,3 +1,14 @@
-const error = require('./utils/error')
+import error from './utils/error'
 
-exports.invalid_token = () => error('Invalid token.')
+import * as tokens from './models/tokens'
+
+/**
+ * @param {string} token 
+ */
+export function check(token) {
+  return tokens.check(token)
+}
+
+export function invalid_token() {
+  return error('Invalid token.')
+}

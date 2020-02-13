@@ -1,10 +1,8 @@
-const db = require('../db')
+import db from '../db'
 
-const model = db.model('User', {
+export const model = db.model('User', {
   username: { type: String, },
   email: { type: String, },
   password: { type: String, },
   created: { type: Date, default: Date.now, },
 })
-
-exports.model = model

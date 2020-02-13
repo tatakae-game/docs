@@ -2,7 +2,7 @@
  * @param {string} text 
  * @param {{[key: string]: any}} others 
  */
-module.exports = (text, others) => ({
+export default (text, others) => ({
   error: text,
   ...others,
 })

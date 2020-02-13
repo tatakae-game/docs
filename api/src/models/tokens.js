@@ -1,25 +1,24 @@
-const db = require('../db')
+import db from '../db'
 
-const model = db.model('Token', {
+export const model = db.model('Token', {
   value: { type: String },
   expires: { type: Date, },
 })
 
-exports.model = model
+export const length = 128
 
-const length = 128
-exports.length = length
-
-exports.check = async (token) => {
+export async function check(token) {
   if (!token) return false
   if ((typeof token) != 'string') return false
   if (length != token.length) return false
 
   try {
-    const res = await model.findOne({
+    await model.findOne({
       value: token,
       expires: { $gt: Date.now, }
     }).exec()
+
+    return true
   } catch (e) {
     return false
   }
