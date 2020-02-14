@@ -1,4 +1,4 @@
-import error from './utils/error'
+import { ErrorsGenerator } from './utils/error'
 
 import * as tokens from './models/tokens'
 
@@ -10,5 +10,5 @@ export function check(token) {
 }
 
 export function invalid_token() {
-  return error('Invalid token.')
+  return ErrorsGenerator.gen(['Invalid token.'])
 }

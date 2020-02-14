@@ -5,7 +5,7 @@ export default router
 import argon2 from 'argon2'
 
 import * as auth from '../auth'
-import error, { ErrorsGenerator } from '../utils/error'
+import { ErrorsGenerator } from '../utils/error'
 
 import * as users from '../models/users'
 

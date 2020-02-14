@@ -1,12 +1,3 @@
-/**
- * @param {string} text 
- * @param {{[key: string]: any}} others 
- */
-export default (text, others) => ({
-  error: text,
-  ...others,
-})
-
 export class ErrorsGenerator {
   /** @type {string[]} */
   messages = []
@@ -19,16 +10,38 @@ export class ErrorsGenerator {
     if (!condition) {
       this.push(message)
     }
+
+    return this
   }
 
   /**
-   * @param {string} message 
+   * @param {string[]} messages 
    */
-  push(message) {
-    this.messages.push(message)
+  push(...messages) {
+    this.messages.push(...messages)
+
+    return this
   }
 
   get has_errors() {
     return this.messages.length > 0
+  }
+
+  /**
+   * @param {{[key: string]: any}} others 
+   */
+  gen(others) {
+    return {
+      errors: this.messages,
+      ...others,
+    }
+  }
+
+  /**
+   * @param {string[]} messages 
+   * @param {{[key: string]: any}} others 
+   */
+  static gen(messages, others) {
+    return new this().push(...messages).gen(others)
   }
 }
