@@ -10,13 +10,15 @@ import { AppComponent } from './app.component';
 import { EditorComponent } from './editor/editor.component';
 import { GameComponent } from './game/game.component';
 import { HeaderComponent } from './header/header.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EditorComponent,
     GameComponent,
-    HeaderComponent
+    HeaderComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
