@@ -72,8 +72,6 @@ router.post('/auth/login', async (req, res, next) => {
 
   if (users.email_regex.test(username)) {
     username_is_email = true
-  } else if (!users.username_regex.test(username)) {
-    errors.push('Invalid username.')
   }
 
   if (users.password_regex.test(password)) {
