@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MonacoEditorModule } from 'ngx-monaco-editor';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,6 +22,7 @@ import { HeaderComponent } from './header/header.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    FontAwesomeModule,
     MonacoEditorModule.forRoot(),
   ],
   providers: [],
