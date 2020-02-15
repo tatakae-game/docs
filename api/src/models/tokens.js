@@ -7,7 +7,7 @@ export const model = db.model('Token', {
   expires: { type: Date, },
 })
 
-export const length = 128 // Must be a pair
+export const length = 32 // Must be a pair
 
 export const expiry_duration = 6.048e+8 // 6.048e+8 = 1 week in milliseconds
 
