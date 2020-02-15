@@ -1,4 +1,4 @@
-import { ErrorsGenerator } from './utils/error'
+import { ErrorsGenerator } from './utils/errors'
 
 import * as tokens from './models/tokens'
 
