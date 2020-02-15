@@ -1,3 +1,5 @@
+import crypto from 'crypto'
+
 import db from '../db'
 
 export const model = db.model('Token', {
@@ -5,7 +7,9 @@ export const model = db.model('Token', {
   expires: { type: Date, },
 })
 
-export const length = 128
+export const length = 128 // Must be a pair
+
+export const expiry_duration = 6.048e+8 // 6.048e+8 = 1 week in milliseconds
 
 export async function check(token) {
   if (!token) return false
@@ -22,4 +26,15 @@ export async function check(token) {
   } catch (e) {
     return false
   }
+}
+
+export function create(never_expires = false) {
+  const token = crypto.randomBytes(length / 2).toString('hex')
+
+  const expires = never_expires ? new Date(8640000000000000) : (Date.now() + expiry_duration)
+
+  return model.create({
+    value: token,
+    expires,
+  })
 }
