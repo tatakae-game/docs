@@ -8,6 +8,7 @@ import * as auth from '../auth'
 import { ErrorsGenerator } from '../utils/error'
 
 import * as users from '../models/users'
+import * as tokens from '../models/tokens'
 
 router.post('/auth/check', async (req, res) => {
   const token = req.token
@@ -57,4 +58,42 @@ router.post('/auth/register', async (req, res, next) => {
   res.send({
     success: true,
   })
+})
+
+
+router.post('/auth/login', async (req, res, next) => {
+  const connected = await auth.check(req.token)
+  if (connected) return next()
+
+  const { username, password, keep_connected } = req.body || {}
+  const errors = new ErrorsGenerator()
+
+  let username_is_email = false
+
+  if (users.email_regex.test(username)) {
+    username_is_email = true
+  } else if (!users.username_regex.test(username)) {
+    errors.push('Invalid username.')
+  }
+
+  if (users.password_regex.test(password)) {
+    try {
+      const user = await users.model.findOne({
+        [username_is_email ? "email" : "username"]: username,
+      })
+
+      const valid = await argon2.verify(user.password, password)
+
+      if (valid) {
+        const token = await tokens.create(!!keep_connected)
+
+        return res.send({
+          success: true,
+          token: token.value,
+        })
+      }
+    } catch { }
+  }
+
+  res.send(ErrorsGenerator.gen(['Email and password does not match.']))
 })
