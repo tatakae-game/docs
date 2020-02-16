@@ -32,6 +32,7 @@ export class ErrorsGenerator {
    */
   gen(others) {
     return {
+      success: false,
       errors: this.messages,
       ...others,
     }
