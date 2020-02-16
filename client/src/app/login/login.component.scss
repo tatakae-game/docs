@@ -11,13 +11,19 @@ form {
   width: 400px;
 }
 
-button[type="submit"] {
-  float: right;
-}
-
 img {
   user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   -webkit-user-select: none;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+
+  a {
+    margin-top: auto;
+    font-size: 14px;
+  }
 }

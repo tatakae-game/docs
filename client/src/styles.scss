@@ -96,3 +96,16 @@ button {
     transform: scale(1.05);
   }
 }
+
+a {
+  @include remove-default-appearance;
+
+  text-decoration: underline;
+  color: #dfdfdf;
+  
+  transition: all .2s;
+
+  &:hover {
+    color: #ca792b;
+  }
+}
