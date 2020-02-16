@@ -13,6 +13,9 @@ app.use(body_parser.json())
 import token_middleware from './middlewares/token'
 app.use(token_middleware)
 
+import cors from 'cors'
+app.use(cors())
+
 import * as routes from './routes'
 app.use(Object.values(routes))
 
