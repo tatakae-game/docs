@@ -17,6 +17,14 @@
   box-shadow: none;
 }
 
+@mixin material-box-shadow {
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  -ms-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  -o-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -56,5 +64,26 @@ body {
     padding: 5px 0px;
 
     width: 100%;
+  }
+}
+
+button {
+  @include remove-default-appearance;
+  @include material-box-shadow;
+
+  background: #ca792b;
+  background: -webkit-linear-gradient(135deg, #ca792b, #811d17);
+  background: linear-gradient(135deg, #ca792b, #811d17);
+  color: inherit;
+
+  border-radius: 9px;
+  padding: 8px 16px;
+
+  transition: all 0.2s;
+
+  &:hover {
+    cursor: pointer;
+
+    transform: scale(1.05);
   }
 }
