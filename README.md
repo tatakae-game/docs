@@ -13,6 +13,17 @@ Robot AI development game.
 - [CMake](https://cmake.org/download/)
 - [ANTLR 4](https://github.com/antlr/antlr4/blob/master/doc/getting-started.md)
 
+## Setup the "dev" folder
+In the folder you want to settup the environment do:
+```bash
+git clone git@github.com:tatakae-game/tatakae-api.git
+git clone git@github.com:tatakae-game/tatakae-client.git
+git clone git@github.com:tatakae-game/tatakae-admin.git
+git clone git@github.com:tatakae-game/san.git
+```
+
+And you're set!
+
 ## SAN compiler
 Create a build directory.
 ```bash
