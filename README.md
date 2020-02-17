@@ -17,10 +17,10 @@ Robot AI development game.
 ## Setup the "dev" folder
 In the folder you want to settup the environment do:
 ```bash
-git clone git@github.com:tatakae-game/tatakae-api.git
-git clone git@github.com:tatakae-game/tatakae-client.git
-git clone git@github.com:tatakae-game/tatakae-admin.git
-git clone git@github.com:tatakae-game/san.git
+git clone git@github.com:tatakae-game/tatakae-api.git --recurse-submodules
+git clone git@github.com:tatakae-game/tatakae-client.git --recurse-submodules
+git clone git@github.com:tatakae-game/tatakae-admin.git --recurse-submodules
+git clone git@github.com:tatakae-game/san.git --recurse-submodules
 ```
 
 And you're set!
