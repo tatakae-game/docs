@@ -1,9 +1,12 @@
-[submodule "compiler/libs/antlr4"]
-	path = compiler/libs/antlr4
-	url = https://github.com/antlr/antlr4.git
-[submodule "compiler/libs/llvm"]
-	path = compiler/libs/llvm
-	url = https://git.llvm.org/git/llvm.git
-[submodule "compiler/libs/lld"]
-	path = compiler/libs/lld
-	url = https://git.llvm.org/git/lld.git
+[submodule "client"]
+	path = client
+	url = https://github.com/tatakae-game/tatakae-client.git
+[submodule "admin"]
+	path = admin
+	url = https://github.com/tatakae-game/tatakae-admin.git
+[submodule "api"]
+	path = api
+	url = https://github.com/tatakae-game/tatakae-api.git
+[submodule "san"]
+	path = san
+	url = https://github.com/tatakae-game/san.git
