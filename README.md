@@ -12,6 +12,7 @@ Robot AI development game.
     - GCC/G++ (Linux / macOS)
 - [CMake](https://cmake.org/download/)
 - [ANTLR 4](https://github.com/antlr/antlr4/blob/master/doc/getting-started.md)
+- [MongoDB](https://docs.mongodb.com/manual/administration/install-community/)
 
 ## Setup the "dev" folder
 In the folder you want to settup the environment do:
