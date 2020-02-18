@@ -1,4 +1,4 @@
-# Tatakae
+![# Tatakae](resources/logo.png)
 Robot AI development game.
 
 # Manual building
