@@ -1,0 +1,54 @@
+version: "3"
+services:
+  client:
+    build: ./tatakae-client
+    command: npm start -- --host 0.0.0.0
+    container_name: tatakae-client
+    volumes:
+      - ./tatakae-client:/app/client
+      - /app/client/node_modules
+    networks:
+      - client
+    environment:
+      NODE_ENV: development
+    ports:
+      - "4200:4200"
+  api:
+    build: ./tatakae-api
+    container_name: tatakae-api
+    volumes:
+      - ./tatakae-api:/app/api
+      - ./tatakae-client:/app/client
+      - /app/api/node_modules
+    networks:
+      - private
+      - client
+    command: npm run dev
+    environment:
+      MONGO_URL: mongodb://mongo:27017
+      DB_NAME: tatakae
+      NODE_ENV: development
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+      - client
+    links:
+      - mongo
+      - client
+  mongo:
+    image: mongo
+    container_name: tatakae-mongo
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - private
+    ports:
+      - "27017:27017"
+
+volumes:
+  mongo-data:
+
+networks:
+  client:
+  private:
