@@ -8,7 +8,7 @@ Each actions takes different amount of battery.
 
 If a robot's battery is empty, no more actions will be possible until next turn.
 
-A game generally starts with 10 battery points.
+A game is generally configured to give **10 battery points** each turns.
 
 ## Health system
 A robot usually starts with **40 health points**. Those points can be healed by different ways:
