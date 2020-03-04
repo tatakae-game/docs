@@ -28,7 +28,7 @@ A robot can only go forward or backward, rotations are the only things that can 
 **Battery cost: 1.**
 
 ### Jump
-Jumping can only be done forward en will jump 1 tile, making the robot advance by 2 tiles.
+Jumping can only be done forward and will jump 1 tile, making the robot advance by 2 tiles.
 
 If a robot jumps on another robot it will do 10 damages and push the other robot 1 tile forward the jumping robot.
 
