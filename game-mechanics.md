@@ -54,5 +54,5 @@ If the robot didn't exploded then its remains will be still until the game end o
 ## Obstacles
 Items are randomly spawned on the terrain and have different effects:
 - **Blocking obstacles**: Blocks the robots from passing through it
-- **Trees**: Cost +1 battery point to go through it
-- **Ruins**: Cost +2 battery point to go through it
+- **Trees**: Cost +1 battery point to go on it - will be destroyed on traversal
+- **Ruins**: Cost +2 battery point to go on it - will be destroyed on traversal
