@@ -1,6 +1,9 @@
 ![# Tatakae](resources/logo.png)
 Robot AI development game.
 
+# Documentation
+- [Game Mechanics](game-mechanics.md)
+
 # Manual building
 ## Requirements
 - [Node >= 10.13.0](https://nodejs.org/en/download/)
