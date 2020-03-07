@@ -1,5 +1,6 @@
 #!/bin/bash
 
+git clone "git@github.com:tatakae-game/docs.git" --recurse-submodules
 git clone "git@github.com:tatakae-game/tatakae-api.git" --recurse-submodules
 git clone "git@github.com:tatakae-game/tatakae-client.git" --recurse-submodules
 git clone "git@github.com:tatakae-game/tatakae-admin.git" --recurse-submodules
