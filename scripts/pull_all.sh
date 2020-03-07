@@ -1,9 +1,15 @@
 #!/bin/bash
 
+origin_directory=$PWD
+current_directory="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
 for dir in *; do
-  cd $dir
+  if [ -d "${dir}" ]; then
+    printf "Pulling $current_directory/$dir. "
 
-  git pull
+    cd "$current_directory/$dir"
+    git pull
 
-  cd ..
+    cd $origin_directory
+  fi
 done
