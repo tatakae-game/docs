@@ -1,11 +1,13 @@
 $env:GIT_SSH = (Get-Command ssh | Select-Object -expand source)
 
-$files = Get-ChildItem *
+$files = Get-ChildItem * -Directory
 
 foreach ($file in $files) {
-  Set-Location "$file"
+  If (-NOT  ($file -eq '.git')) {
+    Push-Location "$file"
 
-  git pull
-
-  Set-Location ..
+    git pull
+  
+    Pop-Location
+  }
 }
