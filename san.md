@@ -39,7 +39,7 @@ Some specificities:
 - `String` - a constant 8 bits integers array
 
 ## Functions
-The first function being called in a software is the `main` function.
+Program execution starts at the `main` function.
 Same thing for SAN.
 ```rs
 fn main() : i32 {
@@ -47,7 +47,7 @@ fn main() : i32 {
 }
 ```
 
-The typing is not necessary if you're not returning something else than `0` (which is the [exit status](https://en.wikipedia.org/wiki/Exit_status)).
+The typing is not necessary if you're only returning `0` (which is the default [exit status](https://en.wikipedia.org/wiki/Exit_status)).
 
 ## Classes
 The bases of Object Oriented Programming concept are classes. They are an essential component of modern programming languages as they provide data containers and methods.
@@ -81,11 +81,11 @@ class Person {
 }
 ```
 
-In this class we defined 3 properties: `firstname` and `lastname` of type `str` and `age` of type `i16`.
+In this class, we defined 3 properties: `firstname` and `lastname` of type `str` and `age` of type `i16`.
 
-Since SAN doesn't provide an explicit constructor we uses `new` methods by standard. In this case we [overloaded](https://en.wikipedia.org/wiki/Function_overloading) the `new` function with one argument (`age`).
+Since SAN doesn't provide an explicit constructor, we uses `new` methods by standard. In this case, we [overloaded](https://en.wikipedia.org/wiki/Function_overloading) the `new` function with one argument (`age`).
 
-The last but not least `to_str` function can be used to transform the class into a printable string.
+Last but not least, `to_str` function can be used to transform the class into a printable string.
 
 Let's see an use of this class:
 ```rs
@@ -100,7 +100,7 @@ fn main() {
 }
 ```
 
-This piece of code will outputs:
+This code will outputs:
 ```
 Johnatan Doe - 0
 Maria Springfield - 34
