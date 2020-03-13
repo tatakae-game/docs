@@ -38,6 +38,83 @@ Some specificities:
 - `Character` - a ASCII character stored in an 8 bits integer
 - `String` - a constant 8 bits integers array
 
+## Operators
+### Binary operators
+- `=` - Affectation
+- `+` - Addition
+- `-` - Substraction
+- `*` - Multiplication
+- `/` - Division
+- `&` - Logical AND
+- `|` - Logical OR
+- `^` - Logical XOR
+
+### Boolean operators
+- `==` - Equal test
+- `!=` - Not equal test
+- `<` - Lest than test
+- `<=` - Lest than or equal test
+- `>` - Greater than test
+- `>=` - Greater than or not equal test
+- `&&` - Conditional logical AND
+- `||` - Conditional logical OR
+
+### Other operators
+- `:` - Typing
+
+## Variables
+In order to store and use any kind of data a variable is what to use.
+The syntax is `let <name>: <type> = <value>`.
+
+```rs
+let variable: i16 = 0
+```
+
+## Conditions
+What's an algorithm without conditions?
+
+```rs
+if 1 == 1 {
+  std::print("1 == 1")
+} else {
+  std::print("1 != 1")
+}
+```
+
+You can put whatever expression you wants in a condition.
+
+## Loops
+### While loop
+```rs
+let i: i32 = 0
+
+while i < 5 {
+  i = i + 1
+  std::print(std::to_str(i))
+}
+
+// Output
+1
+2
+3
+4
+5
+```
+
+### For loop
+```rs
+for n in 1..6 {
+  std::print(std::to_str(i))
+}
+
+// Output
+1
+2
+3
+4
+5
+```
+
 ## Functions
 Program execution starts at the `main` function.
 Same thing for SAN.
