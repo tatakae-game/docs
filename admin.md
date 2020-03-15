@@ -10,9 +10,13 @@ The most intricate part is situated in the technical support, handlded through t
 
 Those tickets will be drafted by regular users, directly on the dedicated web interface.
 
-# Game review
+# Plugins
+## Game review
 Another dependency shall allow admins to run through games actions to provide assistance on tickets and notice possible bug(s) and abuses. A step-by-step presentation of the game will be a necessity in user assistance and functionnality enchancement.
 JFX isn't user-friendly and exporting the whole web interface would be a tedious task. Consequently, this interface will be text only, in a matter of clarity and fast processing.
 
-# Automatic Error elevation
+## Automatic Error elevation
 When an error occures on the API, those errors shall be fetch by the administration software for review.
+
+## Excel Exporter
+Some information may needs to be exported in order to be used by Data Scientists as data sources. This plugin will allow admins to export data as *Comma-Separated Values* (CSV) files.
