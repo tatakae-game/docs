@@ -4,6 +4,7 @@ Robot AI development game.
 # Documentation
 - [Game Mechanics](game-mechanics.md)
 - [SAN](san.md)
+- [Administration software](admin.md)
 
 # Manual building
 ## Requirements
