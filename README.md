@@ -3,7 +3,8 @@ Robot AI development game.
 
 # Documentation
 - [Game Mechanics](game-mechanics.md)
-- [SAN](san.md)
+- [SAN programming language](san.md)
+- [Support System](support.md)
 - [Administration software](admin.md)
 
 # Manual building
