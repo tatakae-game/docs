@@ -6,7 +6,7 @@ foreach ($file in $files) {
   If (-NOT  ($file -eq '.git')) {
     Push-Location "$file"
 
-    git pull
+    git pull origin $(git rev-parse --abbrev-ref HEAD)
   
     Pop-Location
   }

@@ -5,10 +5,10 @@ current_directory="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && p
 
 for dir in *; do
   if [ -d "${dir}" ]; then
-    printf "Pulling $current_directory/$dir. "
+    echo "Pulling $current_directory/$dir. "
 
     cd "$current_directory/$dir"
-    git pull
+    git pull origin $(git rev-parse --abbrev-ref HEAD)
 
     cd $origin_directory
   fi
