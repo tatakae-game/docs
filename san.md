@@ -104,7 +104,7 @@ while i < 5 {
 ### For loop
 ```rs
 for n in 1..6 {
-  std::print(std::to_str(i))
+  std::print(std::to_str(i));
 }
 
 // Output
@@ -120,7 +120,7 @@ Program execution starts at the `main` function.
 Same thing for SAN.
 ```rs
 fn main() : i32 {
-  return 0
+  return 0;
 }
 ```
 
@@ -132,16 +132,16 @@ The bases of Object Oriented Programming concept are classes. They are an essent
 Here's an example of a `Person` class:
 ```rs
 class Person {
-  firstname: str
-  lastname: str
+  firstname: str;
+  lastname: str;
 
-  age: i16 = 0
+  age: i16 = 0;
 
   fn new(firstname: str, lastname: str) : Person {
     return Person { 
       firstname = firstname,
       lastname = lastname,
-    }
+    };
   }
 
   fn new(firstname: str, lastname: str, age: i16) : Person {
@@ -149,11 +149,11 @@ class Person {
       firstname = firstname,
       lastname = lastname,
       age = age,
-    }
+    };
   }
 
   fn to_str() {
-    return firstname + " " + lastname + " - " + std::to_str(age)
+    return firstname + " " + lastname + " - " + std::to_str(age);
   }
 }
 ```
@@ -167,13 +167,13 @@ Last but not least, `to_str` function can be used to transform the class into a 
 Let's see an use of this class:
 ```rs
 fn main() {
-  let p1 = Person::new("John", "Doe")
-  let p2 = Person::new("Maria", "Springfield", 34)
+  let p1 = Person::new("John", "Doe");
+  let p2 = Person::new("Maria", "Springfield", 34);
 
-  p1.firstname = "Johnatan"
+  p1.firstname = "Johnatan";
 
-  std::print(p1.to_str())
-  std::print(p2.to_str())
+  std::print(p1.to_str());
+  std::print(p2.to_str());
 }
 ```
 
