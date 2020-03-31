@@ -182,3 +182,17 @@ This code will outputs:
 Johnatan Doe - 0
 Maria Springfield - 34
 ```
+
+## Comments
+To note important information about any part of your code, comments comes very useful and are a necessity in programming languages.
+
+In SAN, comments are the same as in most of the popular programming languages out there:
+```rs
+// single line comment
+
+/**
+ * Multiple
+ * lines
+ * comment
+ */
+```
