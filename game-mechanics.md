@@ -36,6 +36,18 @@ Falling on a *blocking obstacle* will deal **10 damages** to the jumping robot, 
 
 **Battery cost: 5.**
 
+## Actions
+### Attacks
+A robot can attack with different weapons, a pistol and a sword.
+
+#### Pistol
+**Distance**: 5 tiles
+**Damages**: 8 damages
+
+#### Sword
+**Distance**: 1 tiles
+**Damages**: 12 damages
+
 ## Items
 Items are randomly spawned on the terrain and can be used to perform many actions:
 - **Screws**: heal 5 health points
