@@ -183,6 +183,36 @@ Johnatan Doe - 0
 Maria Springfield - 34
 ```
 
+## Scope
+Having limitations on variables keeps your memory clean and brings a notion of a region where your variable exists only inside of it. In SAN, the scope is defined inside a block (brackets).
+
+A scope can access its parent scope.
+
+Here's a demonstration of this principle:
+```rs
+// global scope
+
+fn add(n1: i32, n2: i32) : i32 {
+  // add's scope
+  return n1 + n2;
+}
+
+fn main() {
+  // main's scope
+
+  // we can access add function because it's in the parent's scope
+  let result: i32 = add(3, 4);
+
+  if (result > 6) {
+    // current if's scope
+    let var: i32 = result / 6;
+  }
+
+  // The compiler generates an error because 'var' is not declared in the current scope
+  let value: i32 = var + 2;
+}
+```
+
 ## Comments
 To note important information about any part of your code, comments comes very useful and are a necessity in programming languages.
 
