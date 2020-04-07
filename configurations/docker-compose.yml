@@ -33,6 +33,28 @@ services:
     depends_on:
       - mongo
       - client
+      - pre-api
+    links:
+      - mongo
+      - client
+  pre-api:
+    build: ./tatakae-api
+    container_name: tatakae-pre-api
+    volumes:
+      - ./tatakae-api:/app/api
+      - ./tatakae-client:/app/client
+      - /app/api/node_modules
+    networks:
+      - private
+      - client
+    command: npm run setup
+    environment:
+      MONGO_URL: mongodb://mongo:27017
+      DB_NAME: tatakae
+      NODE_ENV: development
+    depends_on:
+      - mongo
+      - client
     links:
       - mongo
       - client
