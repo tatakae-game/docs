@@ -44,3 +44,8 @@ As `cli module`, this one is only here to manage the inputs and outputs but this
 ### core:
 
 The most important module of this project. It is with this module that we can manage the logical part to finally share the information to the two other modules. If the demand is from command line interface then the result will be transfered to the `cli module`. Otherwise the result will be sent to the `ui module`.
+
+
+## Tests
+
+As shown upper, each module contains a test directory: `/test`. Those directories will contain all the *unit tests* to be sure our classes are stable and maintainable.
