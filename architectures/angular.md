@@ -5,31 +5,31 @@ The frontend of Tatakae is developped with the framework Angular version 9.0.5
 ## Architecture
 
 ```
-> tatakae-client
-    > e2e
-    > node_modules
-    > src
-        > app
-            > dashboard-admin
-            > game
-            > header
-            > models
-            > services
-            > user-control
-            > validators
-            > views
-                > editor
-                > home
-                > login
-                > not-found
-                > play
-                > room
-                > rooms
-                > signup
-            app-routing.module.ts
-        > assets
-        > environments
-    package.json
+tatakae-client
+├── e2e
+├── node_modules
+├── src
+│   ├── app
+│   │   ├── dashboard-admin
+│   │   ├── game
+│   │   ├── header
+│   │   ├── models
+│   │   ├── services
+│   │   ├── user-control
+│   │   ├── validators
+│   │   ├── views
+│   │   │   ├── editor
+│   │   │   ├── home
+│   │   │   ├── login
+│   │   │   ├── not-found
+│   │   │   ├── play
+│   │   │   ├── room
+│   │   │   ├── rooms
+│   │   │   └── signup
+│   │   └── app-routing.module.ts
+│   ├── assets
+│   └── environments
+└── package.json
 ```
 
 ## Deltails

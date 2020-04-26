@@ -3,10 +3,10 @@
 The application uses Maven as package manager. This will provide a standard architecture like: 
 
 ```
-> project
-    > src
-        > main
-        > test
+project
+└── src
+    ├── main
+    └── test
 ```
 
 We kept the same architecture but adapted to a module scope since the application is running under Java 11.
@@ -16,19 +16,19 @@ We kept the same architecture but adapted to a module scope since the applicatio
 The final architecture will finally look like:
 
 ```
-> tatakae-admin
-    > cli
-        > src
-            > main
-            > test
-    > core
-        > src
-            > main
-            > test
-    > ui
-        > src
-            > main
-            > test
+tatakae-admin
+├── cli
+│   └── src
+│       ├── main
+│       └── test
+├── core
+│   └── src
+│       ├── main
+│       └── test
+└── ui
+    └── src
+        ├── main
+        └── test
 ```
 
 ## Modules
