@@ -1,5 +1,5 @@
 # Security algorithm
-Today's needs about security became one of the major aspect of any modern software. One of the most critical part of a software is authentification, it's the only barrier between a user's identity and the software.
+Today's needs about security became one of the major aspect of any modern software. One of the most critical part of a software is authentication, it's the only barrier between a user's identity and the software.
 
 ## Tokens
 A way and also our chosen solution is the use of tokens to authenticate the users. Once the user's credentials are sent to the server, a token is sent back.
