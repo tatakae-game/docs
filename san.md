@@ -27,16 +27,19 @@ Some specificities:
 - `f64` - 64 bits floating point 
 
 ### Boolean
-`bool`
+`bool` or `i1`
 
 ### Arrays
-`T[]` such as `i8[]` (strings), `f32[]`, etc...
+`T[n]` such as `i8[n]` (constant strings), `f32[n]`, etc...
+
+### Pointers
+Pretty much like arrays but without the specified array size: `T[]`.
 
 ## Constants
 - `Integer` - any number from `-9223372036854775808` (minimal 64 bits signed integer) to `18446744073709551615` (maximal 64 bits unsigned integer)
 - `Floating point` - any number from `2.22507e-308` (minimal 64 bits floating point) to `1.79769e+308` (maximal 64 bits floating point)
-- `Character` - a ASCII character stored in an 8 bits integer
-- `String` - a constant 8 bits integers array
+- `Character` - a ASCII character stored in a 8bit integer
+- `String` - a constant 8bit integer array
 
 ## Operators
 ### Binary operators
@@ -64,10 +67,10 @@ Some specificities:
 
 ## Variables
 In order to store and use any kind of data a variable is what to use.
-The syntax is `let <name>: <type> = <value>`.
+The syntax is `let <name>: <type> = <value>;`.
 
 ```rs
-let variable: i16 = 0
+let variable: i16 = 0;
 ```
 
 ## Conditions
@@ -75,9 +78,9 @@ What's an algorithm without conditions?
 
 ```rs
 if 1 == 1 {
-  std::print("1 == 1")
+  std::print("1 == 1");
 } else {
-  std::print("1 != 1")
+  std::print("1 != 1");
 }
 ```
 
@@ -89,8 +92,8 @@ You can put whatever expression you wants in a condition.
 let i: i32 = 0
 
 while i < 5 {
-  i = i + 1
-  std::print(std::to_str(i))
+  i += 1;
+  std::print(std::to_str(i));
 }
 
 // Output
@@ -121,6 +124,13 @@ Same thing for SAN.
 ```rs
 fn main() : i32 {
   return 0;
+}
+```
+
+## Generic functions
+```rs
+fn add<L, R>(l: L&, r: R&) : L {
+  return l + r;
 }
 ```
 
@@ -164,7 +174,7 @@ Since SAN doesn't provide an explicit constructor, we uses `new` methods by stan
 
 Last but not least, `to_str` function can be used to transform the class into a printable string.
 
-Let's see an use of this class:
+Let's see how to use this class:
 ```rs
 fn main() {
   let p1 = Person::new("John", "Doe");
@@ -181,6 +191,20 @@ This code will outputs:
 ```
 Johnatan Doe - 0
 Maria Springfield - 34
+```
+
+### Generic classes
+Here's a use case of generic classes.
+```rs
+class List<T> {
+  ptr: T[];
+
+  static fn new() : List<T> {
+    return List<T> {
+      ptr = std::mem::allocate<T>(16),
+    };
+  }
+}
 ```
 
 ## Scope
