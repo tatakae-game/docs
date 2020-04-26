@@ -1,4 +1,4 @@
-# Game
+# Game's algorithms
 ## Introduction
 The game works on a double class interactions base, where the Map and the Robots (the user robot, and the enemy robots) share informations on different actions resolution. One of our main goal in the whole construction of Map and Robot was to hide the complexity of resolution of any robots interactions with the map, or with each other. Those explain the large amount of high complexity algorithms in this part.
 
