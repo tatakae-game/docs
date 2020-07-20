@@ -1,6 +1,6 @@
 # Java Technical Documentation
 
-The application is designed to provide administrator services as :
+The application is designed to provide administrator services as:
 
 - Manage tickets status
 - Resolve customers issues by live chat
@@ -18,13 +18,13 @@ The project is composed of four modules.
 ### Module CLI
 
 This module is the CLI version of the application.
-It offers a choice menu interface to the user to let accessible to everyone.
+It offers a key choice menu to allow users to navigate through the application.
 
 Provide an interface: `MenuInterface`.
 
 ### Module CORE
 
-The `core module` is the heart of the application. It contains all logical parts needed in the dependences like CLI and GUI.
+The `core module` is the heart of the application. It contains all logical parts needed in the dependencies like CLI and GUI.
 
 Provide an interface: `Plugin`.
 
@@ -37,7 +37,7 @@ It contains all controllers and XML files to create the views for the gui interf
 
 The `starter module` is here to route to the appropriate environment at the launch of the application.
 
-In case of any argument while launching the application, the starter will launch the GUI version. Otherwise, the starter will launch the CLI version.
+In case of any argument on launching the application, the starter will launch the GUI version. Otherwise, the starter will launch the CLI version.
 
 ## Plugin manager
 
