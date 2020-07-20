@@ -80,6 +80,7 @@ san run main.sn
 san run main.sn -- arg1 arg2
 ```
 ```rs
+// main.sn
 fn main(argc: i32, argv: i8**) {
     std::print(argv[1]); // arg1
     std::print(argv[2]); // arg2
