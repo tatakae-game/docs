@@ -1,4 +1,4 @@
-# JAVA Technical
+# Java Technical Documentation
 
 The application is designed to provide administrator services as :
 
