@@ -33,12 +33,12 @@ Some specificities:
 `T[n]` such as `i8[n]` (constant strings), `f32[n]`, etc...
 
 ### Pointers
-Pretty much like arrays but without the specified array size: `T[]`.
+Pretty much like arrays but without the specified array size: `T*`.
 
 ## Constants
 - `Integer` - any number from `-9223372036854775808` (minimal 64 bits signed integer) to `18446744073709551615` (maximal 64 bits unsigned integer)
 - `Floating point` - any number from `2.22507e-308` (minimal 64 bits floating point) to `1.79769e+308` (maximal 64 bits floating point)
-- `Character` - a ASCII character stored in a 8bit integer
+- `Character` - ASCII characters stored in a 8bit integer
 - `String` - a constant 8bit integer array
 
 ## Operators
@@ -51,6 +51,8 @@ Pretty much like arrays but without the specified array size: `T[]`.
 - `&` - Logical AND
 - `|` - Logical OR
 - `^` - Logical XOR
+
+All binary operators exists in their affectation variant (eq: `+=`).
 
 ### Boolean operators
 - `==` - Equal test
@@ -72,6 +74,50 @@ The syntax is `let <name>: <type> = <value>;`.
 ```rs
 let variable: i16 = 0;
 ```
+
+## Reference
+References are a way to pass values directly by their pointer without copying it.
+
+There is 2 types of references: normal references and constant references.
+
+Constant references allow passing a value which type isn't the one required if the conversion is possible, it also accept non-allocated values like literals or function calls return values. All of that being impossible in normal values.
+
+Normal values in the other hand can update the passed variable's value. Here's an example for clarity:
+
+```rs
+// Normal reference
+fn inc(n: i32&) {
+  n++;
+}
+
+fn main() {
+  let v: i32 = 5;
+  inc(v);
+
+  std::print(v); // 6
+
+  let v: f64 = 5.0;
+  inc(v); // Compilation error
+}
+```
+
+Normal references forces the values to be exactly the same type as the one required.
+
+```rs
+// Constant referencee
+fn add(n1: const f32&, n2: const f32&) : i32 {
+  return n1 + n2;
+}
+
+fn main() {
+  let a: u64 = 1;
+  let result = add(a, 2);
+  
+  std::print(result); // 3
+}
+```
+
+The conversion from `u64` to `f32` was possible because the reference is constant. Constant references are useful for optimizing code in case the wanted types are passed and don't need conversion.
 
 ## Conditions
 What's an algorithm without conditions?
@@ -106,7 +152,7 @@ while i < 5 {
 
 ### For loop
 ```rs
-for n in 1..6 {
+for n in std::range<i32>::new(1, 6) {
   std::print(std::to_str(i));
 }
 
@@ -122,7 +168,7 @@ for n in 1..6 {
 Program execution starts at the `main` function.
 Same thing for SAN.
 ```rs
-fn main() : i32 {
+fn main() {
   return 0;
 }
 ```
@@ -201,9 +247,86 @@ class List<T> {
 
   static fn new() : List<T> {
     return List<T> {
-      ptr = std::mem::allocate<T>(16),
+      ptr = std::memory::allocate<T>(16),
     };
   }
+}
+```
+
+#### Special generic classes
+Sometimes you want a generic that does a specific thing for a specific type.
+
+```rs
+class A<T> {
+  value: i32;
+}
+
+special class A<i64> {
+  long: i64;
+}
+```
+
+Here when you'll use `A<i64>` type you will have access to `long` property and not `value` property.
+
+In case you want to get the same properties as the original but extend it you could extend from `base` which is a reference to the origin.
+
+```rs
+class A<T> {
+  value: i32;
+}
+
+special class A<i64> extends base<i32> {
+  long: i64;
+}
+```
+
+Now you can access `value` and `long` properties from `A<i64>` type.
+
+## Unions
+This one obscure data structure lets you put any type you want inside it:
+```rs
+union JsonValue {
+  string: str;
+  int: i64;
+}
+
+fn main() {
+  let value: JsonValue;
+  value.string = "Hello!";
+
+  std::print(value.string); // Hello!
+
+  value.int = 42;
+
+  std::print(value.int); // 42
+}
+```
+
+The only limitation of this structure is that you can only store one value at a time. Using the wrong values will be considered UB, be sure to keep a hint to which type is inside this structure.
+
+The size of an union is the size of the biggest type inside it.
+
+They also work in generic exactly the same way as classes.
+
+## Aliases
+This is basically a pre-processor to another name or value, you can define an alias to reference anything.
+
+They can also be generified.
+
+```rs
+alias PI = 3.14;
+alias PI2 = 3.14 / 2;
+
+alias p = std::print;
+
+alias Array<T> = std::Vec<T>::new;
+
+fn main() {
+  let arr = Array<f32>();
+  arr.push(PI);
+  arr.push(PI2);
+
+  p(arr[1]); // 1.57
 }
 ```
 
@@ -225,15 +348,15 @@ fn main() {
   // main's scope
 
   // we can access add function because it's in the parent's scope
-  let result: i32 = add(3, 4);
+  let result = add(3, 4);
 
-  if (result > 6) {
+  if result > 6 {
     // current if's scope
-    let var: i32 = result / 6;
+    let var = result / 6;
   }
 
   // The compiler generates an error because 'var' is not declared in the current scope
-  let value: i32 = var + 2;
+  let value = var + 2;
 }
 ```
 
