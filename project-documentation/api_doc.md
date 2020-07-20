@@ -11,9 +11,21 @@ It does provide some socket endpoint too.
 
 #### GET `/users/me` ####
 
+##### Require #####
+
+User to be loged
+
+##### Result #####
+
 Get the contacting user informations
 
+-----
+
 #### GET `/users` ####
+
+##### Result #####
+
+Get all users
 
 Get all users
 
