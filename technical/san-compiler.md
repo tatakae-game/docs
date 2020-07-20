@@ -4,10 +4,10 @@ The compiler is using `ANTLR4` for lexical code analysis, parsing and Abstract S
 As an example, here's the ANTLR4 (EBNF) implementation of type syntax in SAN:
 ```ebnf
 type:
-	type '[' expression ']'					# TypeArray
-	| type Const? '*'						# TypePointer
-	| type Const? '&'						# TypeReference
-	| Const? (scopedName | functionType)	# TypeName;
+	type '[' expression ']'                 # TypeArray
+	| type Const? '*'                       # TypePointer
+	| type Const? '&'                       # TypeReference
+	| Const? (scopedName | functionType)    # TypeName;
 ```
 
 In order to link the generated object file with system or external libraries, the compiler uses `LLD`, a cross-platform linker made by the same people who did `LLVM`.
