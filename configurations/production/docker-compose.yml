@@ -1,0 +1,70 @@
+version: "3"
+services:
+  client:
+    build: ./tatakae-client
+    container_name: tatakae-client
+    networks:
+      - client
+    ports:
+      - "7001:80"
+  playground:
+    build: ./san-playground
+    container_name: san-playground
+    networks:
+      - private
+    ports:
+      - 7002:4000
+  api:
+    build: ./tatakae-api
+    container_name: tatakae-api
+    networks:
+      - private
+      - client
+    command: npm run dev
+    environment:
+      MONGO_URL: mongodb://mongo:27017
+      DB_NAME: tatakae
+      NODE_ENV: production
+      SAN_PLAYGROUND_URL: http://playground:7002/
+    ports:
+      - "7003:3000"
+    depends_on:
+      - mongo
+      - client
+      - playground
+      - pre-api
+    links:
+      - mongo
+      - client
+      - playground
+  pre-api:
+    build: ./tatakae-api
+    container_name: tatakae-pre-api
+    networks:
+      - private
+      - client
+    command: npm run setup
+    environment:
+      MONGO_URL: mongodb://mongo:27017
+      DB_NAME: tatakae
+      NODE_ENV: development
+    depends_on:
+      - mongo
+      - client
+    links:
+      - mongo
+      - client
+  mongo:
+    image: mongo
+    container_name: tatakae-mongo
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - private
+
+volumes:
+  mongo-data:
+
+networks:
+  client:
+  private:
